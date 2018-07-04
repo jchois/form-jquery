@@ -1,0 +1,64 @@
+#content{
+    width: 600px;
+    padding: 20px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 100px auto;
+    box-shadow: 0px 0px 7px 2px lightgrey;
+}
+#head{
+    display: flex;
+    flex-direction: column;
+}
+.btn-save{
+    display: flex;
+    align-self: flex-end;
+}
+#section1{
+    border: 1px solid rgb(201, 199, 199);
+    border-radius: 5px;
+    padding: 12px;
+}
+.info{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.data1, .data2{
+    width: 100%;
+}
+.range{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+}
+#to{
+    padding: 0 4px 0 4px;
+    font-size: 13px;
+}
+#span-pru{
+    background-color: rgb(192, 192, 192);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    width: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.years-por{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.add-rem{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
