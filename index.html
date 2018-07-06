@@ -11,26 +11,34 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     
     <title>Form jQuery</title>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/main.js"></script>
+    
 </head>
 <body>
     
     <div id="content">
 
-        <form>
+        <form class="form">
 
             <div id="head">
-                <button type="button" class="btn btn-success btn-save">SAVE</button> <br>
+                <input type="button" class="btn btn-success save" value="SAVE"> <br>
                 <div class="form-group">
                     <label for="name-input">First Name*</label>
-                    <input type="text" class="form-control" id="name-input" placeholder="First Name">
+                    <input name="nameInput" type="text" class="form-control" id="name" placeholder="First Name">
+                    <div id="error">
+                        <a id="msj-error" class="msj-error">This field is empty*</a>
+                    </div>
                 </div>
             </div> 
 
+            <!-- block 1 -->
             <section id="section1">
 
-                <div class="alert alert-danger">
-                    <a href="#" class="close" data-dismiss="alert" aria-label="close" tittle="close">×</a>
-                    <strong>Error!</strong> Indicates a dangerous or potentially negative action.
+                <div class="alert alert-danger xclose">
+                    <a href="#" class="close equis" data-dismiss="alert" aria-label="close" tittle="close">×</a>
+                    <strong>Error!</strong>
                 </div>
                 
                 <div class="info">
@@ -38,13 +46,13 @@
                         <label>Ranges</label>
                         <div class="range">
                             <div class="input-group input-div">
-                                <input type="text" class="form-control" name="range1" placeholder="">
-                                <span id="span-pru" class="input-group-addon"><i class="	fa fa-percent"></i></span>
+                                <input type="number" class="form-control" name="range1" id="perc1">
+                                <span id="span-pru" class="input-group-addon"><i class="fa fa-percent"></i></span>
                             </div>
-                            <label id="to">TO</label>
+                            <label class="to">TO</label>
                             <div class="input-group">
-                                <input type="text" class="form-control" name="range2" placeholder="">
-                                <span id="span-pru" class="input-group-addon"><i class="	fa fa-percent"></i></span>
+                                <input type="number" class="form-control" name="range2" id="perc2">
+                                <span id="span-pru" class="input-group-addon"><i class="fa fa-percent"></i></span>
                             </div>
                         </div>     
                     </div>
@@ -52,30 +60,173 @@
                         
                         <div class="years-por">
                             <div class="years">
-                                <label for="sel1">Years</label>
-                                <select class="form-control" id="sel1">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
+                                <label for="years">Years</label>
+                                <select class="form-control" id="years-select" name="years">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
                                 </select>
                             </div>
-                            <div class="porc">
-                                <div class="form-group">
-                                    <label for="name-input">Percentage</label>
-                                    <input type="text" class="form-control" id="name-input" placeholder="Years">
-                                </div>
+                            <div class="years-inputs">
+                                    <label for="percentage1">Percentage</label>
+
+                                    <input type="number" class="form-control input-bott" id="percentage1" placeholder="Year 1">
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
+            <!-- block 2 -->
+            <section id="section2">
+                
+                    <div class="alert alert-danger xclose">
+                        <a href="#" class="close equis" data-dismiss="alert" aria-label="close" tittle="close">×</a>
+                        <strong>Error!</strong> Indicates a dangerous or potentially negative action.
+                    </div>
+                    
+                    <div class="info">
+                        <div class="data1">
+                            <label>Ranges</label>
+                            <div class="range">
+                                <div class="input-group input-div">
+                                    <input type="number" class="form-control" name="range2" placeholder="">
+                                    <span id="span-pru" class="input-group-addon"><i class="fa fa-percent"></i></span>
+                                </div>
+                                <label class="to">TO</label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" name="range2" placeholder="">
+                                    <span id="span-pru" class="input-group-addon"><i class="fa fa-percent"></i></span>
+                                </div>
+                            </div>     
+                        </div>
+                        <div class="data2">
+                            
+                            <div class="years-por">
+                                <div class="years">
+                                    <label for="sel2">Years</label>
+                                    <select class="form-control" id="sel2">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                </div>
+                                <div class="porc">
+                                    <div class="form-group">
+                                        <label for="name-input">Percentage</label>
+                                        <input type="number" class="form-control" id="name-input" placeholder="Years">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </section>
+
+            <!-- block 3 -->
+            <section id="section3">
+                
+                    <div class="alert alert-danger xclose">
+                        <a href="#" class="close equis" data-dismiss="alert" aria-label="close" tittle="close">×</a>
+                        <strong>Error!</strong> Indicates a dangerous or potentially negative action.
+                    </div>
+                    
+                    <div class="info">
+                        <div class="data1">
+                            <label>Ranges</label>
+                            <div class="range">
+                                <div class="input-group input-div">
+                                    <input type="number" class="form-control" name="range3" placeholder="">
+                                    <span id="span-pru" class="input-group-addon"><i class="fa fa-percent"></i></span>
+                                </div>
+                                <label class="to">TO</label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" name="range2" placeholder="">
+                                    <span id="span-pru" class="input-group-addon"><i class="fa fa-percent"></i></span>
+                                </div>
+                            </div>     
+                        </div>
+                        <div class="data2">
+                            
+                            <div class="years-por">
+                                <div class="years">
+                                    <label for="sel3">Years</label>
+                                    <select class="form-control" id="sel3">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                </div>
+                                <div class="porc">
+                                    <div class="form-group">
+                                        <label for="name-input">Percentage</label>
+                                        <input type="number" class="form-control" id="name-input" placeholder="Years">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </section> 
+
+            <!-- block 4 -->
+            <section id="section4">
+                
+                    <div class="alert alert-danger xclose">
+                        <a href="#" class="close equis" data-dismiss="alert" aria-label="close" tittle="close">×</a>
+                        <strong>Error!</strong> Indicates a dangerous or potentially negative action.
+                    </div>
+                    
+                    <div class="info">
+                        <div class="data1">
+                            <label>Ranges</label>
+                            <div class="range">
+                                <div class="input-group input-div">
+                                    <input type="number" class="form-control" name="range4" placeholder="">
+                                    <span id="span-pru" class="input-group-addon"><i class="fa fa-percent"></i></span>
+                                </div>
+                                <label class="to">TO</label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" name="range2" placeholder="">
+                                    <span id="span-pru" class="input-group-addon"><i class="fa fa-percent"></i></span>
+                                </div>
+                            </div>     
+                        </div>
+                        <div class="data2">
+                            
+                            <div class="years-por">
+                                <div class="years">
+                                    <label for="sel4">Years</label>
+                                    <select class="form-control" id="sel4">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                </div>
+                                <div class="porc">
+                                    <div class="form-group">
+                                        <label for="name-input">Percentage</label>
+                                        <input type="number" class="form-control" id="name-input" placeholder="Years">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
             <div class="add-rem">
-                <div><button type="button" class="btn btn-info">+ADD</button></div>
-                <div><button type="button" class="btn btn-danger">-REMOVE</button></div>
+                <div><button type="button" class="btn btn-info add">ADD</button></div>
+                <div><button type="button" class="btn btn-danger remove">REMOVE</button></div>
             </div>
         </form>
     </div>
