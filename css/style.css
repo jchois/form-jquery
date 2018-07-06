@@ -23,7 +23,7 @@ section{
     margin-bottom: 15px;
 }
 #section2, #section3, #section4{
-    display: none;
+    display: ;
 }
 .info{
     width: 100%;
@@ -73,7 +73,7 @@ section{
 .warning{
     border-color: red;
 }
-.xclose{
+.xclose, .xclose2, .xclose3, .xclose4{
     display: none;
 }
 .input-bott{

@@ -15,11 +15,11 @@ $(document).ready(function(){
     function valAll(){
         
         valName();
-        valRangeEmpty();
-        valRange();
-        valPercentEmpty();
+        valFields();
+        valFields2();
+        valFields3();
+        valFields4();
     }
-
     function valName(){
 
         var cont = 0;
@@ -31,68 +31,130 @@ $(document).ready(function(){
 
         if (cont==0) {
             $('#error').css("display", "none");
-            console.log('esta lleno el campo name');
         }else{
             $('#error').css("display", "block");
         }
     }
-
-    function valRange(){
+    function valFields(){
         var perc1 = $("#perc1").val();
         var perc2 = $("#perc2").val();
-        var value = false;
+        var percent = $('#percentage1').val();
 
-        if(perc2 > perc1){
-            value = true;
-        }else{
-            value = false;
+        if((perc1 == "") || (perc2 == "") || (percent == "")){
             $('.xclose').css("display", "block");
-            //$('.xclose').append("The second field of the ranges must be greater than the first");
+            $('.xclose').html("<strong>Error!</strong> One or more of the fields is empty")
+        }else{
+        if(perc1 > perc2){
+            $('.xclose').css("display", "block");
             $('.xclose').html("<strong>Error!</strong> The second field of the ranges must be greater than the first")
-        }
-    }
-
-    function valRangeEmpty(){
-         
-        var cont = 0;
-
-        if($("#perc1").val()=="" || $("#perc2").val()==""){
-            cont = 1;
-        }
-
-        if(cont==0){
-            $('.xclose').css("display", "none");
         }else{
-            $('.xclose').css("display", "block");
-            //$('.xclose').append("One or both of the ranges fields are empty");
-            $('.xclose').html("<strong>Error!</strong> One or both of the ranges fields are empty")
-        }
-    }
-
-    function valPercentEmpty(){
-        var cont = 0;
-
-        if($("#percentage1").val()==""){
-            cont = 1;
-        }
-        if (cont==0){
             $('.xclose').css("display", "none");
-            console.log('esta lleno el campo percentage');
-        }else{
+        }
+        if(percent > 100){
             $('.xclose').css("display", "block");
-            $('.xclose').html("<strong>Error!</strong> The percentage field is empty")
-            console.log('esta vacio percentage');
+            $('.xclose').html("<strong>Error!</strong> The range of the percentage field must be between 1-100")
+            // $('#percentage1').addClass("border-danger");
+        }
         }
     }
+    function valFields2(){
+        var perc1 = $("#perc3").val();
+        var perc2 = $("#perc4").val();
+        var percent = $('#percentage2').val();
 
+        if((perc1 == "") || (perc2 == "") || (percent == "")){
+            $('.xclose2').css("display", "block");
+            $('.xclose2').html("<strong>Error!</strong> One or more of the fields is empty")
+        }else{
+        if(perc1 > perc2){
+            $('.xclose2').css("display", "block");
+            $('.xclose2').html("<strong>Error!</strong> The second field of the ranges must be greater than the first")
+        }else{
+            $('.xclose2').css("display", "none");
+        }
+        if(percent > 100){
+            $('.xclose2').css("display", "block");
+            $('.xclose2').html("<strong>Error!</strong> The range of the percentage field must be between 1-100")
+        }
+        }
+    }
+    function valFields3(){
+        var perc1 = $("#perc5").val();
+        var perc2 = $("#perc6").val();
+        var percent = $('#percentage3').val();
+
+        if((perc1 == "") || (perc2 == "") || (percent == "")){
+            $('.xclose3').css("display", "block");
+            $('.xclose3').html("<strong>Error!</strong> One or more of the fields is empty")
+        }else{
+        if(perc1 > perc2){
+            $('.xclose3').css("display", "block");
+            $('.xclose3').html("<strong>Error!</strong> The second field of the ranges must be greater than the first")
+        }else{
+            $('.xclose3').css("display", "none");
+        }
+        if(percent > 100){
+            $('.xclose3').css("display", "block");
+            $('.xclose3').html("<strong>Error!</strong> The range of the percentage field must be between 1-100")
+        }
+        }
+    }
+    function valFields4(){
+        var perc1 = $("#perc7").val();
+        var perc2 = $("#perc8").val();
+        var percent = $('#percentage4').val();
+
+        if((perc1 == "") || (perc2 == "") || (percent == "")){
+            $('.xclose4').css("display", "block");
+            $('.xclose4').html("<strong>Error!</strong> One or more of the fields is empty")
+        }else{
+        if(perc1 > perc2){
+            $('.xclose4').css("display", "block");
+            $('.xclose4').html("<strong>Error!</strong> The second field of the ranges must be greater than the first")
+        }else{
+            $('.xclose4').css("display", "none");
+        }
+        if(percent > 100){
+            $('.xclose4').css("display", "block");
+            $('.xclose4').html("<strong>Error!</strong> The range of the percentage field must be between 1-100")
+        }
+        }
+    }
     function yearsSelect(){
 
-        $('select').on('change', function() {
-            var years = $("select").val();
+        $('.years select').on('change', function() {
+            var years = $(".years select").val();
             $(".years-inputs input").remove();
             
             for (let index = 1; index <= years; index++) {
-                $(".years-inputs").append(`<input type="text" placeholder="Year ${index}">`)
+                $(".years-inputs").append(`<input type="text" class="form-control input-bott" placeholder="Year ${index}">`)
+            }
+        })
+
+        $('.years2 select').on('change', function() {
+            var years = $(".years2 select").val();
+            $(".years-inputs2 input").remove();
+            
+            for (let index = 1; index <= years; index++) {
+                $(".years-inputs2").append(`<input type="text" class="form-control input-bott" placeholder="Year ${index}">`)
+            }
+        })
+
+        $('.years3 select').on('change', function() {
+            var years = $(".years3 select").val();
+            $(".years-inputs3 input").remove();
+            
+            for (let index = 1; index <= years; index++) {
+                $(".years-inputs3").append(`<input type="text" class="form-control input-bott" placeholder="Year ${index}">`)
+            }
+        })
+
+        $('.years4 select').on('change', function() {
+            var years = $(".years4 select").val();
+            $(".years-inputs4 input").remove();
+            
+            for (let index = 1; index <= years; index++) {
+                $(".years-inputs4").append(`<input type="text" class="form-control input-bott" placeholder="Year ${index}">`)
             }
         })
     }
@@ -110,7 +172,6 @@ $(document).ready(function(){
         $(".form section:nth-child(2)").fadeIn();
        // $(".form section").css("display", "block");
     }
-
     function removeBlock(){
         
         if(sectionPos <= 1){
@@ -121,7 +182,6 @@ $(document).ready(function(){
 
         console.log(sectionPos);
     }
-
     function hideBlock(){
         $('.xclose').hide();
     }
