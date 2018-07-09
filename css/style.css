@@ -22,9 +22,7 @@ section{
     padding: 12px;
     margin-bottom: 15px;
 }
-#section2, #section3, #section4{
-    display: ;
-}
+
 .info{
     width: 100%;
     display: flex;
@@ -73,9 +71,18 @@ section{
 .warning{
     border-color: red;
 }
-.xclose, .xclose2, .xclose3, .xclose4{
+.xclose{
     display: none;
 }
 .input-bott{
     margin-bottom: 5px;
+}
+#remove{
+    display: none;
+}
+.hide{
+    display: none !important;
+}
+.show{
+    display: block !important;
 }
