@@ -32,16 +32,17 @@ $(document).ready(function(){
             $('#error').css("display", "block");
         }
     }
+
     function valFields(){
-        var perc1 = $("#perc1").val();
-        var perc2 = $("#perc2").val();
+        var percMin = $("#perc-min").val();
+        var percMay = $("#perc-may").val();
         var percent = $('#percentage').val();
 
-        if((perc1 == "") || (perc2 == "") || (percent == "")){
+        if((percMin == "") || (percMay == "") || (percent == "")){
             $('.xclose').css("display", "block");
-            $('.xclose').html("<strong>Error!</strong> One or more of the fields is empty")
+            $('.xclose').html("<strong>Error!</strong> One or more of the fields are empty")
         }else{
-        if(perc1 >= perc2){
+        if(percMin >= percMay){
             $('.xclose').css("display", "block");
             $('.xclose').html("<strong>Error!</strong> The second field of the ranges must be greater than the first")
         }else{
@@ -76,7 +77,7 @@ $(document).ready(function(){
         }
 
         if(count <= 3){
-            $(`<section id="section${count+1}"> <div class="alert alert-danger xclose${count+1}"></div><div class="info"><div class="data1"><label>Ranges</label><div class="range"><div class="input-group input-div"><input type="number" class="form-control" name="range1" id="perc${count+1}"><span id="span-pru" class="input-group-addon"><i class="fa fa-percent"></i></span></div><label class="to">TO</label><div class="input-group">      <input type="number" class="form-control" name="range2" id="perc${count+1}"><span id="span-pru" class="input-group-addon"><i class="fa fa-percent"></i></span></div></div></div><div class="data2"> <div class="years-por"><div class="years"><label for="years-select2">Years</label> <select data-section="section${count+1}" class="form-control years-selector" name="years2"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option></select></div><div class="years-inputs"><label for="percentage${count+1}">Percentage</label><input type="number" class="form-control input-bott" id="percentage${count+1}" placeholder="Year 1"></div></div></div></div></section>`).appendTo(addDiv);
+            $(`<section id="section${count+1}"> <div class="alert alert-danger xclose${count+1}"></div><div class="info"><div class="data1"><label>Ranges</label><div class="range"><div class="input-group input-div"><input type="number" class="form-control" name="range1" id="perc-min${count+1}"><span id="span-pru" class="input-group-addon"><i class="fa fa-percent"></i></span></div><label class="to">TO</label><div class="input-group"><input type="number" class="form-control" name="range2" id="perc-may${count+1}"><span id="span-pru" class="input-group-addon"><i class="fa fa-percent"></i></span></div></div></div><div class="data2"> <div class="years-por"><div class="years"><label for="years-select2">Years</label> <select data-section="section${count+1}" class="form-control years-selector" name="years2"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option></select></div><div class="years-inputs"><label for="percentage${count+1}">Percentage</label><input type="number" class="form-control input-bott" id="percentage${count+1}" placeholder="Year 1"></div></div></div></div></section>`).appendTo(addDiv);
         }
         
         if(count == 3){
