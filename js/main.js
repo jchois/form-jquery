@@ -4,7 +4,7 @@ $(document).ready(function(){
     var sectionPos = 1;
     console.log(cantSection);
 
-    //ejecute the functions
+    //Ejecute the functions
     $('.save').click(valAll);
     $('.add').click(addBlock);
     $('.remove').click(removeBlock);
@@ -12,6 +12,7 @@ $(document).ready(function(){
     yearsSelect();
 
     //Functions
+
     function valAll(){
         
         valName();
@@ -20,7 +21,6 @@ $(document).ready(function(){
     function valName(){
 
         var cont = 0;
-        //$('#error').css("display", "block");
 
         if ($('#name').val()==""){
             cont=1;
@@ -35,28 +35,27 @@ $(document).ready(function(){
     function valFields(){
         var perc1 = $("#perc1").val();
         var perc2 = $("#perc2").val();
-        var percent = $('#percentage1').val();
+        var percent = $('#percentage').val();
 
         if((perc1 == "") || (perc2 == "") || (percent == "")){
-            $('.xclose').addClass("show");
+            $('.xclose').css("display", "block");
             $('.xclose').html("<strong>Error!</strong> One or more of the fields is empty")
         }else{
-        if(perc1 > perc2){
-            $('.xclose').addClass("show");
+        if(perc1 >= perc2){
+            $('.xclose').css("display", "block");
             $('.xclose').html("<strong>Error!</strong> The second field of the ranges must be greater than the first")
         }else{
             $('.xclose').css("display", "none");
         }
         if(percent > 100){
-            $('.xclose').addClass("show");
+            $('.xclose').css("display", "block");
             $('.xclose').html("<strong>Error!</strong> The range of the percentage field must be between 1-100")
-            // $('#percentage1').addClass("border-danger");
         }
         }
     }
     function yearsSelect(){
 
-        $(document.body).on( 'change', '.years-selector', function () {
+        $(document.body).on( 'change', '.years-selector', function(){
             var years = $(this).val();
             var dataSectionId = $(this).attr("data-section");
 
@@ -71,31 +70,33 @@ $(document).ready(function(){
     function addBlock(){
         var addDiv = $('.form');
         var count = $(".form section").length;
-        var i = 1;
 
         if(count >= 1){
-            $('#remove').addClass("show");
+            $('#remove').css("display", "block");
         }
 
         if(count <= 3){
-            $(`<section id="section${count+1}"> <div class="alert alert-danger xclose"></div><div class="info"><div class="data1"><label>Ranges</label><div class="range"><div class="input-group input-div"><input type="number" class="form-control" name="range1" id="perc1"><span id="span-pru" class="input-group-addon"><i class="fa fa-percent"></i></span></div><label class="to">TO</label><div class="input-group">      <input type="number" class="form-control" name="range2" id="perc2"><span id="span-pru" class="input-group-addon"><i class="fa fa-percent"></i></span></div></div></div><div class="data2"> <div class="years-por"><div class="years"><label for="years-select2">Years</label> <select data-section="section${count+1}" class="form-control years-selector" name="years2"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option></select></div><div class="years-inputs"><label for="percentage1">Percentage</label><input type="number" class="form-control input-bott" id="percentage1" placeholder="Year 1"></div></div></div></div></section>`).appendTo(addDiv);
+            $(`<section id="section${count+1}"> <div class="alert alert-danger xclose${count+1}"></div><div class="info"><div class="data1"><label>Ranges</label><div class="range"><div class="input-group input-div"><input type="number" class="form-control" name="range1" id="perc${count+1}"><span id="span-pru" class="input-group-addon"><i class="fa fa-percent"></i></span></div><label class="to">TO</label><div class="input-group">      <input type="number" class="form-control" name="range2" id="perc${count+1}"><span id="span-pru" class="input-group-addon"><i class="fa fa-percent"></i></span></div></div></div><div class="data2"> <div class="years-por"><div class="years"><label for="years-select2">Years</label> <select data-section="section${count+1}" class="form-control years-selector" name="years2"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option></select></div><div class="years-inputs"><label for="percentage${count+1}">Percentage</label><input type="number" class="form-control input-bott" id="percentage${count+1}" placeholder="Year 1"></div></div></div></div></section>`).appendTo(addDiv);
         }
         
         if(count == 3){
-            $("#add").addClass("hide");
+            $("#add").css("display", "none");
         }
+
+        console.log(count);
     }
 
     function removeBlock(){
         var count = $(".form section").length
 
+        console.log(count);
         if(count <= 4){
-            $('#add').addClass("show");
-        }
-        if(count >= 2){
-            $('#remove').addClass("hide");
+            $('#add').css("display", "block");
         }
 
+        if(count == 2){
+            $('#remove').css("display", "none");
+        }
         $(".form section").last().remove();
     }
 

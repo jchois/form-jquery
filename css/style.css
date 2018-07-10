@@ -80,6 +80,9 @@ section{
 #remove{
     display: none;
 }
+#add{
+    display: block;
+}
 .hide{
     display: none !important;
 }
