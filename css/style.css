@@ -71,7 +71,7 @@ section{
 .warning{
     border-color: red;
 }
-.xclose, .xclose2, .xclose3, .xclose4{
+.xclose1, .xclose2, .xclose3, .xclose4{
     display: none;
 }
 .input-bott{
