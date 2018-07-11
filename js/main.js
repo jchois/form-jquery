@@ -1,9 +1,5 @@
 $(document).ready(function () {
 
-    var cantSection = $(".form section").length;
-    var sectionPos = 1;
-    console.log(cantSection);
-
     //Ejecute the functions
     $('.save').click(valAll);
     $('.add').click(addBlock);
@@ -47,13 +43,12 @@ $(document).ready(function () {
                 if($(this).val() == '') {
                     percentEmpty = true
                 }
-                if($(this).val() > 100) {
+                if($(this).val() > 100 || $(this).val() == 0) {
                     isGreaterThan100 = true
                 }
             })
             
-
-            if ((percMin == "") || (percMay == "") || percentEmpty) {
+            if ((percMin == "") || (percMay == "") || percentEmpty){
                 $(`.xclose${id}`).css("display", "block");
                 $(`.xclose${id}`).html("<strong>Error!</strong> One or more of the fields are empty");
             } else {
@@ -69,12 +64,8 @@ $(document).ready(function () {
                 }
             }
         })
-
-        var percMin = $('#perc-min').val();
-        var percMay = $('#perc-may').val();
-        var percent = $('#percentage').val();
     }
-    function yearsSelect() {
+    function yearsSelect(){
 
         $(document.body).on('change', '.years-selector', function () {
             var years = $(this).val();
@@ -99,15 +90,15 @@ $(document).ready(function () {
 
     }
 
-    function addBlock() {
+    function addBlock(){
         var addDiv = $('.form');
         var count = $(".form section").length;
 
-        if (count >= 1) {
+        if (count >= 1){
             $('#remove').css("display", "block");
         }
 
-        if (count <= 3) {
+        if (count <= 3){
             $(`<section id="section${count + 1}"> <div class="alert alert-danger xclose${count + 1}"></div><div class="info"><div class="data1"><label>Ranges</label><div class="range"><div class="input-group input-div"><input type="number" class="form-control" name="range1" id="perc-min${count + 1}"><span id="span-pru" class="input-group-addon"><i class="fa fa-percent"></i></span></div><label class="to">TO</label><div class="input-group"><input type="number" class="form-control" name="range2" id="perc-may${count + 1}"><span id="span-pru" class="input-group-addon"><i class="fa fa-percent"></i></span></div></div></div><div class="data2"> <div class="years-por"><div class="years"><label for="years-select2">Years</label> <select data-section="section${count + 1}" class="form-control years-selector" name="years${count + 1}"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option></select></div><div class="years-inputs"><label for="percentage${count + 1}">Percentage</label><input type="number" class="form-control input-bott" id="percentage-${count + 1}" placeholder="Year 1"></div></div></div></div></section>`).appendTo(addDiv);
         }
 
